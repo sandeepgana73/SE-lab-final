@@ -5,19 +5,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.1.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
   <parent>   
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.9.9</version>
+    <version>3.2.5</version>
     <relativePath/> 
   </parent>
 
   <groupId>com.virtualevent</groupId>
   <artifactId>event-app</artifactId>
   <version>1.0-SNAPSHOT</version>
-   <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <name>Virtual Event Application</name>
   <url>http://www.example.com</url>
 
@@ -29,10 +29,10 @@
 
   <dependencyManagement>
     <dependencies>
-     <dependency>
+      <dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>javax.servlet-api</artifactId>
-        <version>9.9.9</version>
+        <version>4.0.1</version>
         <scope>provided</scope>
       </dependency>
     </dependencies>
@@ -42,13 +42,14 @@
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
     </dependency>
-
     <dependency>
-      <groupId>javax.jstl</groupId>
-      <artifactId>jstl</artifactId>
-      <version>1.2</version>
-    </dependency>  
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>2.0.0</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -60,26 +61,21 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.12.0</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.5</version>
-    </dependency>
   </dependencies>
 
   <build>
-    <finalName>event-app</finalName>
-    <pluginS>
+    <finalName>Virtual_Event-Mgmt</finalName>
+    <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.1</version>
         <configuration>
-          <source>11.7</source>
-          <target>11.7</target>
+          <source>11</source>
+          <target>11</target>
         </configuration>
       </plugin>
       <plugin>
-       <artifactId>maven-sure-fire-plugin</artifactId>
+        <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M7</version>
       </plugin>
       <plugin>
@@ -90,14 +86,14 @@
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.3.0</version>
         <configuration>
-          <archeve>
+          <archive>
             <manifest>
               <mainClass>com.virtualevent.mainApp</mainClass>
             </manifest>
-          </archeve>
+          </archive>
         </configuration>
       </plugin>
-    </pluginS>
+    </plugins>
   </build>
   <profiles>
     <profile>
@@ -107,4 +103,4 @@
       </properties>
     </profile>
   </profiles>
-<project>
+</project>
